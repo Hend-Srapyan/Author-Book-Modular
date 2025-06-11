@@ -20,4 +20,6 @@ public class AuthorBookRestApplication {
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
+
+
 }

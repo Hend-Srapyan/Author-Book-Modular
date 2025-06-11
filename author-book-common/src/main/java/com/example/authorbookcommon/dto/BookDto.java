@@ -17,4 +17,6 @@ public class BookDto {
     private double price;
     private int qty;
     private Author author;
+    private double priceUSD;
+    private double priceRUB;
 }
