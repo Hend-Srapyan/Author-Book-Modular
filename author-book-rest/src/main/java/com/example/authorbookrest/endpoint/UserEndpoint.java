@@ -64,11 +64,11 @@ public class UserEndpoint {
             @ApiResponse(responseCode = "409", description = "Email already exists"),
             @ApiResponse(responseCode = "200",description = "Registration is success")
     })
-    public ResponseEntity<?> register(@RequestBody SaveUserRequest saveUserRequest) {
+    public ResponseEntity<String> register(@RequestBody SaveUserRequest saveUserRequest) {
         if (userService.findByEmail(saveUserRequest.getEmail()).isPresent()) {
             return ResponseEntity
                     .status(HttpStatus.CONFLICT)
-                    .build();
+                    .body("Email already exists");
         }
 
         saveUserRequest.setPassword(passwordEncoder.encode(saveUserRequest.getPassword()));
